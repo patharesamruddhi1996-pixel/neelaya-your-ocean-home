@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * Neelaya design system.
  *
  * The @theme inline block maps CSS custom properties to Tailwind utility
  * classes (e.g. --color-primary -> bg-primary, text-primary).
@@ -13,9 +13,8 @@
  * The :root and .dark blocks define the actual color values using oklch.
  * All colors MUST use oklch format.
  *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * Palette is derived from the Neelaya logo sky-to-ocean gradient.
+ * See BRAND_PALETTE.md for full HEX/OKLCH reference.
  */
 
 @theme inline {
@@ -59,77 +58,110 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Extended Neelaya brand palette */
+  --color-sky-50: var(--sky-50);
+  --color-sky-100: var(--sky-100);
+  --color-sky-200: var(--sky-200);
+  --color-sky-300: var(--sky-300);
+  --color-ocean-400: var(--ocean-400);
+  --color-ocean-500: var(--ocean-500);
+  --color-ocean-600: var(--ocean-600);
+  --color-deep-700: var(--deep-700);
+  --color-deep-800: var(--deep-800);
+  --color-deep-900: var(--deep-900);
+  --color-coral: var(--coral);
+  --color-sand: var(--sand);
+  --color-seafoam: var(--seafoam);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  /* Sky-to-ocean gradient palette */
+  --sky-50: oklch(0.960 0.015 229.143);
+  --sky-100: oklch(0.904 0.043 225.035);
+  --sky-200: oklch(0.840 0.071 229.438);
+  --sky-300: oklch(0.763 0.101 233.142);
+  --ocean-400: oklch(0.667 0.121 235.855);
+  --ocean-500: oklch(0.563 0.112 236.513);
+  --ocean-600: oklch(0.466 0.097 239.300);
+  --deep-700: oklch(0.371 0.075 238.138);
+  --deep-800: oklch(0.293 0.057 234.844);
+  --deep-900: oklch(0.211 0.042 236.127);
+  --coral: oklch(0.801 0.094 33.837);
+  --sand: oklch(0.932 0.030 73.869);
+  --seafoam: oklch(0.821 0.090 179.519);
+
+  /* Semantic mapping — light mode */
+  --background: var(--sky-50);
+  --foreground: var(--deep-900);
+  --card: var(--sky-50);
+  --card-foreground: var(--deep-900);
+  --popover: var(--sky-50);
+  --popover-foreground: var(--deep-900);
+  --primary: var(--ocean-500);
+  --primary-foreground: var(--sky-50);
+  --secondary: var(--deep-700);
+  --secondary-foreground: var(--sky-50);
+  --muted: var(--sky-100);
+  --muted-foreground: var(--deep-700);
+  --accent: var(--sky-200);
+  --accent-foreground: var(--deep-900);
+  --destructive: var(--coral);
+  --destructive-foreground: var(--deep-900);
+  --border: var(--sky-100);
+  --input: var(--sky-100);
+  --ring: var(--ocean-400);
+  --chart-1: var(--ocean-500);
+  --chart-2: var(--seafoam);
+  --chart-3: var(--sky-300);
+  --chart-4: var(--coral);
+  --chart-5: var(--sand);
+  --sidebar: var(--sky-100);
+  --sidebar-foreground: var(--deep-900);
+  --sidebar-primary: var(--ocean-500);
+  --sidebar-primary-foreground: var(--sky-50);
+  --sidebar-accent: var(--sky-200);
+  --sidebar-accent-foreground: var(--deep-900);
+  --sidebar-border: var(--sky-100);
+  --sidebar-ring: var(--ocean-400);
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  /* Semantic mapping — dark mode */
+  --background: var(--deep-900);
+  --foreground: var(--sky-50);
+  --card: var(--deep-800);
+  --card-foreground: var(--sky-50);
+  --popover: var(--deep-800);
+  --popover-foreground: var(--sky-50);
+  --primary: var(--ocean-400);
+  --primary-foreground: var(--deep-900);
+  --secondary: var(--deep-800);
+  --secondary-foreground: var(--sky-50);
+  --muted: var(--deep-800);
+  --muted-foreground: var(--sky-200);
+  --accent: var(--deep-700);
+  --accent-foreground: var(--sky-50);
+  --destructive: var(--coral);
+  --destructive-foreground: var(--deep-900);
+  --border: var(--deep-800);
+  --input: var(--deep-800);
+  --ring: var(--ocean-400);
+  --chart-1: var(--ocean-400);
+  --chart-2: var(--seafoam);
+  --chart-3: var(--sky-300);
+  --chart-4: var(--coral);
+  --chart-5: var(--sand);
+  --sidebar: var(--deep-800);
+  --sidebar-foreground: var(--sky-50);
+  --sidebar-primary: var(--ocean-400);
+  --sidebar-primary-foreground: var(--deep-900);
+  --sidebar-accent: var(--deep-700);
+  --sidebar-accent-foreground: var(--sky-50);
+  --sidebar-border: var(--deep-800);
+  --sidebar-ring: var(--ocean-400);
 }
 
 @layer base {
